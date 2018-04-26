@@ -1,0 +1,45 @@
+CREATE TABLE IF NOT EXISTS Employer
+(
+  id        INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  userName  VARCHAR(32) NOT NULL UNIQUE,
+  pass      VARCHAR(32) NOT NULL,
+  first     VARCHAR(32) NOT NULL,
+  last      VARCHAR(32) NOT NULL,
+  email     VARCHAR(32) NOT NULL,
+  gender    VARCHAR(32)
+);
+
+CREATE TABLE IF NOT EXISTS Employee
+(
+  id        INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  userName  VARCHAR(32) NOT NULL UNIQUE,
+  pass      VARCHAR(32) NOT NULL,
+  first     VARCHAR(32) NOT NULL,
+  last      VARCHAR(32) NOT NULL,
+  email     VARCHAR(32) NOT NULL,
+  gender    VARCHAR(32),
+  employer  INT NOT NULL,
+  CONSTRAINT employee FOREIGN KEY(employer) REFERENCES Employer(id)
+);
+
+CREATE TABLE IF NOT EXISTS Hours
+(
+  Hid     INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  id      INT NOT NULL,
+  year    INT NOT NULL,
+  month   INT NOT NULL,
+  day     INT NOT NULL,
+  hrs     INT NOT NULL,
+  CONSTRAINT workId FOREIGN KEY(id) REFERENCES Employee(id)
+);
+
+CREATE TABLE IF NOT EXISTS Service
+(
+  Sid     INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  id      INT NOT NULL,
+  year    INT NOT NULL,
+  month   INT NOT NULL,
+  day     INT NOT NULL,
+  amt     NUMERIC(12, 2),
+  CONSTRAINT workerId FOREIGN KEY(id) REFERENCES Employee(id)
+);
