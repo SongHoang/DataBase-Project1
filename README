@@ -1,0 +1,3 @@
+EZ Records
+
+This was my term project for Database class at UGA created with 4 other classmates. It was a website that allowed managers to manage and view employee work schedules and number of hours worked, as well as employees logging in hours worked. It ran on the XAMPP stack, using Apache, PHP 5, and MySQL. Bootstrap was used as the front end. I was tasked with writing the PHP code to query the SQL database and add and edit data accordingly.
